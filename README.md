@@ -74,7 +74,7 @@ TG_CHAT_ID="your-telegram-chat-id"
 
 ### 基本用法
 ```bash
-./cf-v4-ddns.sh -k your-api-key -u user@example.com -h host.example.com -z example.com -b your-telegram-bot-token -c your-telegram-chat-id 
+/usr/local/bin/cf-v4-ddns.sh -k your-api-key -u user@example.com -h host.example.com -z example.com -b your-telegram-bot-token -c your-telegram-chat-id 
 ```
 
 ### 完整参数说明
@@ -99,17 +99,17 @@ TG_CHAT_ID="your-telegram-chat-id"
 
 #### 1. 更新IPv4记录
 ```bash
-./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -t A
+/usr/local/bin/cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -t A
 ```
 
 #### 2. 更新IPv6记录
 ```bash
-./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -t AAAA
+/usr/local/bin/cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -t AAAA
 ```
 
 #### 3. 强制更新（忽略IP比较）
 ```bash
-./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -f true
+/usr/local/bin/cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -f true
 ```
 
 #### 4. 子域名自动补全
@@ -117,11 +117,11 @@ TG_CHAT_ID="your-telegram-chat-id"
 ```bash
 # 输入: -h "home" -z "example.com"
 # 自动补全为: home.example.com
-./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home" -z "example.com"
+/usr/local/bin/cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home" -z "example.com"
 ```
 #### 5. 同步成功通知tg
 ```bash
-./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -b your-telegram-bot-token -c your-telegram-chat-id 
+/usr/local/bin/cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -b your-telegram-bot-token -c your-telegram-chat-id 
 ```
 ## 自动化运行
 
