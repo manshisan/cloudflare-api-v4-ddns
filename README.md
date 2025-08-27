@@ -32,8 +32,8 @@
 
 ### 1. 下载脚本
 ```bash
-curl https://raw.githubusercontent.com/manshisan/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh
-chmod +x /usr/local/bin/cf-ddns.sh
+curl https://raw.githubusercontent.com/manshisan/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-v4-ddns.sh
+chmod +x /usr/local/bin/cf-v4-ddns.sh
 ```
 
 ### 2. 配置脚本
@@ -134,13 +134,13 @@ TG_CHAT_ID="your-telegram-chat-id"
 crontab -e
 
 # 每分钟执行一次（无日志）
-*/1 * * * * /usr/local/bin/cf-ddns.sh >/dev/null 2>&1
+*/1 * * * * /usr/local/bin/cf-v4-ddns.sh >/dev/null 2>&1
 
 # 每5分钟执行一次（记录日志）
-*/5 * * * * /usr/local/bin/cf-ddns.sh >> /var/log/cf-ddns.log 2>&1
+*/5 * * * * /usr/local/bin/cf-v4-ddns.sh >> /var/log/cf-v4-ddns.log 2>&1
 
 # 每小时执行一次
-0 * * * * /usr/local/bin/cf-ddns.sh >> /var/log/cf-ddns.log 2>&1
+0 * * * * /usr/local/bin/cf-v4-ddns.sh >> /var/log/cf-v4-ddns.log 2>&1
 ```
 
 ### 系统服务方式
