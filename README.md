@@ -11,6 +11,7 @@
 - 支持强制更新模式
 - 自动缓存Zone ID和Record ID，提高执行效率
 - 详细的错误处理和日志输出
+- （可选）将更新状态通知tg
 
 ## 前置要求
 
@@ -31,7 +32,7 @@
 
 ### 1. 下载脚本
 ```bash
-curl https://raw.githubusercontent.com/yulewang/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh
+curl https://raw.githubusercontent.com/manshisan/cloudflare-api-v4-ddns/master/cf-v4-ddns.sh > /usr/local/bin/cf-ddns.sh
 chmod +x /usr/local/bin/cf-ddns.sh
 ```
 
@@ -58,6 +59,12 @@ CFRECORD_TYPE=A
 
 # TTL值 (120-86400秒)
 CFTTL=120
+
+# tg bot的token
+TG_BOT_TOKEN="your-telegram-bot-token"
+
+# tg chat id
+TG_CHAT_ID="your-telegram-chat-id"
 ```
 
 #### 方式二：使用命令行参数
@@ -67,7 +74,7 @@ CFTTL=120
 
 ### 基本用法
 ```bash
-./cf-v4-ddns.sh -k your-api-key -u user@example.com -h host.example.com -z example.com
+./cf-v4-ddns.sh -k your-api-key -u user@example.com -h host.example.com -z example.com -b your-telegram-bot-token -c your-telegram-chat-id 
 ```
 
 ### 完整参数说明
@@ -85,6 +92,8 @@ CFTTL=120
 - `-f` : 强制更新模式
   - `false` : 仅在IP变化时更新（默认）
   - `true` : 无论IP是否变化都强制更新
+- `-b` : telegram的bot token
+- `-c` : telegram的chat id
 
 ### 使用示例
 
@@ -110,7 +119,10 @@ CFTTL=120
 # 自动补全为: home.example.com
 ./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home" -z "example.com"
 ```
-
+#### 5. 同步成功通知tg
+```bash
+./cf-v4-ddns.sh -k "your-api-key" -u "user@example.com" -h "home.example.com" -z "example.com" -b your-telegram-bot-token -c your-telegram-chat-id 
+```
 ## 自动化运行
 
 ### 设置定时任务（推荐）
@@ -136,7 +148,7 @@ crontab -e
 
 ## 文件说明
 
-脚本运行时会在用户家目录创建以下文件：
+脚本运行时会在用户home目录创建以下文件：
 
 ### 1. IP缓存文件
 - 文件位置：`$HOME/.cf-wan_ip_[记录名].txt`
@@ -251,6 +263,7 @@ CFTTL=3600 # 1小时
 - 当前版本基于Cloudflare API v4
 - 支持Bearer Token认证方式
 - 兼容IPv4和IPv6
+- 添加了telegram bot通知
 
 ## 许可证
 
@@ -265,4 +278,4 @@ CFTTL=3600 # 1小时
 
 ---
 *AI生成*
-*最后更新：2025年8月1日*
+*最后更新：2025年8月27日*
